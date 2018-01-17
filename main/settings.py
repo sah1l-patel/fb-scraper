@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Django settings for helloworld project.
+# Django settings for main project.
 
 import os
 
@@ -104,7 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'helloworld.urls'
+ROOT_URLCONF = 'main.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

@@ -11,8 +11,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^helloworld/', include('helloworld.foo.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
@@ -20,9 +18,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 
     # Hello, world!
-    (r'^fetch_data/', 'helloworld.views.fetch_data'),
-    (r'^signup/', newsletter_views.signupform),
-    (r'', TemplateView.as_view(template_name='index.html'))
+    (r'', newsletter_views.signupform)
 )
 
 if settings.DEBUG:
