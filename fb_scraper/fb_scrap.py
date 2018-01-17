@@ -10,8 +10,9 @@ app_secret = "6a28a95200f3193426ea9134da9c1a29" # DO NOT SHARE WITH ANYONE!
 access_token = app_id + "|" + app_secret
 
 page_id = 'nike'
-start_date = '2017-01-01'
-end_date = '2018-01-01'
+start_date = datetime.datetime.today()
+end_date = datetime.datetime.today()
+diff_days = ((end_date + datetime.timedelta(1)) - (start_date - datetime.timedelta(1))).days
 
 def testFacebookPageData(page_id, access_token):
     
@@ -118,7 +119,7 @@ def processFacebookPageFeedStatus(status):
 def scrapeFacebookPageFeedStatus(page_id, access_token, file):
     
     w = csv.writer(file)
-    w.writerow(["status_id", "status_message", "link_name", "status_type", "status_link",
+    w.writerow(["scrap_time","start_date","end_date","diff_days","status_id", "status_message", "link_name", "status_type", "status_link",
        "status_published", "num_reactions", "num_comments", "num_shares"])
     
     has_next_page = True
@@ -131,7 +132,7 @@ def scrapeFacebookPageFeedStatus(page_id, access_token, file):
     
     while has_next_page:
         for status in statuses['data']:
-            w.writerow(processFacebookPageFeedStatus(status))
+            w.writerow((scrape_starttime,start_date,end_date,diff_days) + processFacebookPageFeedStatus(status))
             
             # output progress occasionally to make sure code is not stalling
             num_processed += 1
