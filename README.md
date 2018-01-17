@@ -37,6 +37,6 @@ After which you can run::
 
 And open the following URL in your web browser:
 
- - http://127.0.0.1:8000/signup/
+ - http://127.0.0.1:8000
 
 And you can see the textbox to enter page_id from facebook and it will download csv file for the same.
