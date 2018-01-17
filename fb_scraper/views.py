@@ -14,6 +14,9 @@ def signupform(request):
 			#if valid rendering new view with values
 			#the form values contains in cleaned_data dictionary
 			page_name = form.cleaned_data['page']
+			print page_name
+			start_date = form.cleaned_data['start_date']
+			print start_date
 			fb_scrap.page_id = page_name
 			response = HttpResponse(content_type='text/csv')
     		response['Content-Disposition'] = 'attachment; filename=%s'%page_name+'_facebook_scrap.csv'
