@@ -10,6 +10,8 @@ app_secret = "6a28a95200f3193426ea9134da9c1a29" # DO NOT SHARE WITH ANYONE!
 access_token = app_id + "|" + app_secret
 
 page_id = 'nike'
+start_date = '2017-01-01'
+end_date = '2018-01-01'
 
 def testFacebookPageData(page_id, access_token):
     
@@ -66,7 +68,7 @@ def getFacebookPageFeedData(page_id, access_token, num_statuses):
     # construct the URL string
     base = "https://graph.facebook.com"
     node = "/" + page_id + "/feed" 
-    parameters = "/?fields=message,link,created_time,type,name,id,reactions.limit(1).summary(true),comments.limit(1).summary(true),shares&limit=%s&access_token=%s" % (num_statuses, access_token) # changed
+    parameters = "/?since=%s&until=%s&fields=message,link,created_time,type,name,id,reactions.limit(1).summary(true),comments.limit(1).summary(true),shares&limit=%s&access_token=%s" % (start_date,end_date,num_statuses, access_token) # changed
     url = base + node + parameters
     
     # retrieve data
