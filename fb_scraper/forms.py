@@ -10,6 +10,6 @@ class SignupForm(forms.Form):
 	page = forms.CharField(label='Enter company/page name', max_length=100)
 	current_year = datetime.datetime.today().year
 
-	start_date = forms.DateField(label = 'Enter start date', widget=forms.SelectDateWidget(years=[y for y in range(2004,current_year)]))
-	end_date = forms.DateField(label='Enter end date', default=datetime.date.today,
-								 widget=forms.SelectDateWidget(years=[y for y in range(2004,current_year)]))
+	start_date = forms.DateField(label = 'Enter start date', widget=forms.SelectDateWidget(years=[y for y in range(2004,current_year+1)]))
+	end_date = forms.DateField(label='Enter end date', initial=datetime.date.today,
+								 widget=forms.SelectDateWidget(years=[y for y in range(2004,current_year+1)]))
