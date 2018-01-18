@@ -1,6 +1,6 @@
 #importing forms
 from django import forms 
-from datetime import datetime
+import datetime
 
 #creating our forms
 class SignupForm(forms.Form):
@@ -8,8 +8,8 @@ class SignupForm(forms.Form):
 	#CharField and EmailField are only two of them
 	#go through the official docs for more field details
 	page = forms.CharField(label='Enter company/page name', max_length=100)
-	current_year = datetime.today().year
+	current_year = datetime.datetime.today().year
 
 	start_date = forms.DateField(label = 'Enter start date', widget=forms.SelectDateWidget(years=[y for y in range(2004,current_year)]))
-	end_date = forms.DateField(label='Enter end date',
+	end_date = forms.DateField(label='Enter end date', default=datetime.date.today,
 								 widget=forms.SelectDateWidget(years=[y for y in range(2004,current_year)]))
