@@ -23,7 +23,7 @@ def signupform(request):
             diff_days = ((end_date + datetime.timedelta(1)) - (start_date - datetime.timedelta(1))).days
             fb_scrap.diff_days = diff_days
             response = HttpResponse(content_type='text/csv')
-            response['Content-Disposition'] = 'attachment; filename=%s'%page_name+'_facebook_scrap.csv'
+            response['Content-Disposition'] = 'attachment; filename=%s'%page_name+'_FB_activity.csv'
             fb_scrap.do_scraping(response)
             return response
     else:
