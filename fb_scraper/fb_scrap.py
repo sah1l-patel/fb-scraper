@@ -5,8 +5,8 @@ import csv
 import time
 import re
 
-app_id = "172032250226226"
-app_secret = "6a28a95200f3193426ea9134da9c1a29" # DO NOT SHARE WITH ANYONE!
+app_id = "**********"
+app_secret = "*********" # DO NOT SHARE WITH ANYONE!
 
 access_token = app_id + "|" + app_secret
 
